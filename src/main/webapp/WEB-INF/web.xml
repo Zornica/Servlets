@@ -26,6 +26,36 @@
         <url-pattern>/threePagesServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>pageOneServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task2.PageOneServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>pageOneServlet</servlet-name>
+        <url-pattern>/pageone</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>pageTwoServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task2.PageTwoServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>pageTwoServlet</servlet-name>
+        <url-pattern>/pagetwo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>pageThreeServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task2.PageThreeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>pageThreeServlet</servlet-name>
+        <url-pattern>/pagethree</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>servlet2</servlet-name>
