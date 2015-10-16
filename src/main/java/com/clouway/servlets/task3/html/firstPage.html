@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+<h2>Home page</h2>
+<form action="http://localhost:8080/myservlet" method="post">
+    <p>
+        <input type="radio" name="link" value="Second link" checked/>
+        <a href="myservlet?link=second_link">Second link</a></p>
+    <p>
+        <input type="radio" name="link" value="Third link"/>
+        <a href="myservlet?link=third_link" >Third link</a></p>
+    <p>
+        <input type="radio" name="link" value="Fourth link"/>
+        <a href="myservlet?link=fourth_link" >Fourth link</a></p>
+    <p>
+        <input type="submit" value="Submit"></p>
+</form>
+</body>
+</html>
