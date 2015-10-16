@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>servlet1</servlet-name>
-        <servlet-class>com.clouway.servlets.task2.ThreePagesServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task2.RecognitionServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
