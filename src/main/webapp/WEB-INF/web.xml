@@ -67,4 +67,14 @@
         <url-pattern>/myservlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>homePageServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task3.HomePageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>homePageServlet</servlet-name>
+        <url-pattern>/homepage</url-pattern>
+    </servlet-mapping>
+
 </web-app>
