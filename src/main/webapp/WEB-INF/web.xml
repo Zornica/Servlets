@@ -7,23 +7,23 @@
     <display-name>Archetype Created Web Application</display-name>
 
     <servlet>
-        <servlet-name>servlet</servlet-name>
+        <servlet-name>threeLinksServlet</servlet-name>
         <servlet-class>com.clouway.servlets.task1.ThreeLinksServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>threeLinksServlet</servlet-name>
+        <url-pattern>/threeLinksServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>servlet1</servlet-name>
+        <servlet-name>recognitionServlet</servlet-name>
         <servlet-class>com.clouway.servlets.task2.RecognitionServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>servlet1</servlet-name>
-        <url-pattern>/threePagesServlet</url-pattern>
+        <servlet-name>recognitionServlet</servlet-name>
+        <url-pattern>/recognitionServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -33,7 +33,7 @@
 
     <servlet-mapping>
         <servlet-name>pageOneServlet</servlet-name>
-        <url-pattern>/pageone</url-pattern>
+        <url-pattern>/pageOne</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -43,7 +43,7 @@
 
     <servlet-mapping>
         <servlet-name>pageTwoServlet</servlet-name>
-        <url-pattern>/pagetwo</url-pattern>
+        <url-pattern>/pageTwo</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -53,18 +53,18 @@
 
     <servlet-mapping>
         <servlet-name>pageThreeServlet</servlet-name>
-        <url-pattern>/pagethree</url-pattern>
+        <url-pattern>/pageThree</url-pattern>
     </servlet-mapping>
 
 
     <servlet>
-        <servlet-name>servlet2</servlet-name>
-        <servlet-class>com.clouway.servlets.task3.MyServlet</servlet-class>
+        <servlet-name>counterServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task3.CounterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>servlet2</servlet-name>
-        <url-pattern>/myservlet</url-pattern>
+        <servlet-name>counterServlet</servlet-name>
+        <url-pattern>/counterServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -74,7 +74,7 @@
 
     <servlet-mapping>
         <servlet-name>homePageServlet</servlet-name>
-        <url-pattern>/homepage</url-pattern>
+        <url-pattern>/homePage</url-pattern>
     </servlet-mapping>
 
     <servlet>
