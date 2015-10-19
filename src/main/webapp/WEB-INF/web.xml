@@ -77,4 +77,54 @@
         <url-pattern>/homepage</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>firstServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task4.FirstServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>firstServlet</servlet-name>
+        <url-pattern>/firstServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>secondServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task4.SecondServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>secondServlet</servlet-name>
+        <url-pattern>/secondServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>thirdServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task4.ThirdServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>thirdServlet</servlet-name>
+        <url-pattern>/thirdServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>fourthServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task4.FourthServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>fourthServlet</servlet-name>
+        <url-pattern>/fourthServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>visualizationServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task4.VisualizationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>visualizationServlet</servlet-name>
+        <url-pattern>/visualizationServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
