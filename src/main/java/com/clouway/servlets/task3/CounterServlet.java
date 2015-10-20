@@ -18,25 +18,24 @@ public class CounterServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String link = req.getParameter("link");
         Integer count = (Integer) session.getAttribute(link);
-        PrintWriter out = resp.getWriter();
-        if (link != null) {
-            if (count == null) {
-                count = 1;
-                session.setAttribute(link, count);
-                out.write("<!DOCTYPE html>\n"+"<html>\n"+"<body>\n"+"<h2>Greetings!You are the first client!\n"
-                        +link+" was opened!</h2>\n"+"</body></html>");
-            } else {
-                count += 1;
-                session.setAttribute(link, count);
-                out.write("<!DOCTYPE html>\n"+"<html>\n"+"<body>\n"+"<h2>"
-                        +link+" was opened!</h2>\n"+"</body></html>");
-            }
 
+        if (count == null) {
+            count = 1;
+            session.setAttribute(link, count);
+            resp.getWriter().write("<!DOCTYPE html>\n" + "<html>\n" + "<body>\n" + "<h2>Greetings!You are the first client!\n"
+                    + link + " was opened!</h2>\n" + "</body></html>");
+        } else {
+            count += 1;
+            session.setAttribute(link, count);
+            resp.getWriter().write("<!DOCTYPE html>\n" + "<html>\n" + "<body>\n" + "<h2>"
+                    + link + " was opened!</h2>\n" + "</body></html>");
         }
+
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 }
