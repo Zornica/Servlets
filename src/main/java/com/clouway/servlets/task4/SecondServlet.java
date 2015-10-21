@@ -20,7 +20,7 @@ public class SecondServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         ServletContext sc = getServletContext();
-        sc.setAttribute("servletName", "second servlet");
+        sc.setAttribute("servletName", "Second servlet");
         RequestDispatcher rd = req.getRequestDispatcher("fourthServlet");
         rd.forward(req, resp);
 
