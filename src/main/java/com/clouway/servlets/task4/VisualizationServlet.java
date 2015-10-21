@@ -1,12 +1,11 @@
 package com.clouway.servlets.task4;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 /**
  * Created by clouway on 15-10-16.
@@ -17,8 +16,11 @@ public class VisualizationServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         PrintWriter out = resp.getWriter();
-        Cookie[] cks = req.getCookies();
-        out.write("<!DOCTYPE html>\n" +"<html>\n"+"<body>\n"+"<h2>"+cks[0].getValue()+" was opened!</h2>\n"+"</body></html>");
+
+
+        ServletContext sc = getServletContext();
+        Object name = sc.getAttribute("servletName");
+        out.write("<!DOCTYPE html>\n" +"<html>\n"+"<body>\n"+"<h2>"+name+" was opened!</h2>\n"+"</body></html>");
 
 
     }

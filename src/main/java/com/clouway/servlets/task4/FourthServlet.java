@@ -1,11 +1,10 @@
 package com.clouway.servlets.task4;
 
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 /**
@@ -15,13 +14,13 @@ public class FourthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Cookie[] cks = req.getCookies();
-        String name = cks[0].getValue();
 
-        Cookie ck = new Cookie("servletName",name);
-        resp.addCookie(ck);
-        resp.sendRedirect("visualizationServlet");
+        ServletContext sc = getServletContext();
+        Object name = sc.getAttribute("sevletName");
 
+
+        RequestDispatcher rd = req.getRequestDispatcher("visualizationServlet");
+        rd.forward(req,resp);
 
     }
 }
