@@ -17,14 +17,12 @@ public class FirstServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
-
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter out = resp.getWriter();
         ServletContext sc = getServletContext();
-        sc.setAttribute("servletName","first servlet");
+        sc.setAttribute("servletName", "first servlet");
         RequestDispatcher rd = req.getRequestDispatcher("fourthServlet");
-        rd.forward(req,resp);
+        rd.forward(req, resp);
 
     }
 }

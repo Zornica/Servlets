@@ -14,13 +14,10 @@ public class FourthServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-
         ServletContext sc = getServletContext();
         Object name = sc.getAttribute("sevletName");
-
-
         RequestDispatcher rd = req.getRequestDispatcher("visualizationServlet");
-        rd.forward(req,resp);
+        rd.forward(req, resp);
 
     }
 }

@@ -16,11 +16,9 @@ public class VisualizationServlet extends HttpServlet {
         resp.setContentType("text/html");
 
         PrintWriter out = resp.getWriter();
-
-
         ServletContext sc = getServletContext();
         Object name = sc.getAttribute("servletName");
-        out.write("<!DOCTYPE html>\n" +"<html>\n"+"<body>\n"+"<h2>"+name+" was opened!</h2>\n"+"</body></html>");
+        out.write("<!DOCTYPE html>\n" + "<html>\n" + "<body>\n" + "<h2>" + name + " was opened!</h2>\n" + "</body></html>");
 
 
     }
