@@ -6,7 +6,7 @@ import java.sql.*;
 /**
  * Created by clouway on 15-10-22.
  */
-public class Validate {
+public class Validator {
     public static boolean checkUser(String user, String password) {
         boolean st = false;
         try {

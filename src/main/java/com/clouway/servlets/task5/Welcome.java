@@ -20,7 +20,7 @@ public class Welcome extends HttpServlet {
         String user = req.getParameter("user");
         PrintWriter out = resp.getWriter();
         out.write("<!DOCTYPE html>\n" +
-                "<html>\n"+"<head>\n"+"<h2>Welcome,"+user+"!</h2>\n"+"<body>\n"+
+                "<html>\n"+"<head>\n"+"<title>Your Bank</title>\n<h2>Welcome,"+user+"!</h2>\n"+"<body>\n"+
         "<form action=\"selecterServlet\" methd=\"GET\" >\n"+"<fieldset>\n" +
                 "        <legend style=\"color: midnightblue\">Your online banking is here!</legend>"+
         "<p> If you want to check your bank account, please select 'check your money'.\n If you want to add money in your account, please select 'add money'.\n" +
