@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5;
+package com.clouway.servlets.task5.core;
 
 /**
  * Created by clouway on 15-10-21.

@@ -22,5 +22,6 @@
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-continuation:7.6.1.v20120215" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:7.6.1.v20120215" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:7.6.1.v20120215" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-3.0.17-ga-bin" level="project" />
   </component>
 </module>

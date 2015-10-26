@@ -1,4 +1,6 @@
-package com.clouway.servlets.task5;
+package com.clouway.servlets.task5.Http;
+
+import com.clouway.servlets.task5.core.Validator;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +12,7 @@ import java.io.IOException;
 /**
  * Created by clouway on 15-10-22.
  */
-public class Login extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -18,7 +20,7 @@ public class Login extends HttpServlet {
         String user = req.getParameter("user");
         String password = req.getParameter("password");
         if (Validator.checkUser(user, password)) {
-            RequestDispatcher rc = req.getRequestDispatcher("welcome");
+            RequestDispatcher rc = req.getRequestDispatcher("welcomeServlet");
             rc.forward(req, resp);
         } else {
             resp.getWriter().write("Username or password is not correct!");

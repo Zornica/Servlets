@@ -1,0 +1,16 @@
+.textField {
+    text-align: left;
+}
+
+form {
+    background-color: floralwhite;
+    position: absolute;
+}
+
+.message{
+    text-align: left;
+    color: blue;
+}
+body{
+    background-color: gainsboro;
+}

@@ -127,4 +127,53 @@
         <url-pattern>/visualizationServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>loginServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task5.Http.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginServlet</servlet-name>
+        <url-pattern>/loginServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>messageServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task5.Http.MessageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>messageServlet</servlet-name>
+        <url-pattern>/messageServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task5.Http.RegistrationServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registrationServlet</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>selectorServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task5.Http.SelectorServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>selectorServlet</servlet-name>
+        <url-pattern>/selectorServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>welcomeServlet</servlet-name>
+        <servlet-class>com.clouway.servlets.task5.Http.WelcomeServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>welcomeServlet</servlet-name>
+        <url-pattern>/welcomeServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your bank</title>
+    <link rel="stylesheet" href="registration.css"/>
+</head>
+<body>
+<form id="form" action="http://localhost:8080/registration" method="get">
+    <fieldset>
+        <legend style="color: midnightblue">Personal information:</legend>
+        <p>
+
+        <div>
+            <label for="user" class="dataUser">User:</label>
+
+            <input id="user" class="textField" type="text" pattern="([A-Za-z0-9_]){1,15}$" name="user"
+                   placeholder="userName"/>
+
+            <div id="userMessage" class="message"><sup><i> Must be between 1 and 15 symbols.</i></sup></div>
+        </div>
+        </div>
+
+        </p>
+
+        <p>
+
+        <div>
+            <label for="password" class="dataUser">Password:</label>
+
+            <input id="password" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$" name="password"
+                   placeholder="Password"/>
+
+            <div id="passwordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        </div>
+        </p>
+        <p>
+
+        <div>
+            <label for="confirmPassword" class="dataUser">Confirm password:</label>
+
+            <input id="confirmPassword" class="textField" type="password" pattern="([a-zA-Z0-9]){6,18}$"
+                   name="confirmPassword" placeholder="Confirm password"/>
+
+            <div id="confirmPasswordMessage" class="message"><sup><i> Must be between 6 and 8 symbols.</i></sup></div>
+        </div>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Submit" onclick="validateForm()">
+            <input type="reset" name="clear" value="Clear">
+        </p>
+
+        </div>
+
+        <div id="errorMessage" style="display: none">
+
+            <strong>Warning!</strong> There are empty fields!
+
+        </div>
+
+        <div id="successMessage" style="display: none">
+
+            <strong>Success!</strong> You have successfully signed!
+
+        </div>
+    </fieldset>
+</form>
+
+<script>
+
+    var err = 0;
+
+    var additionalFuncs = [
+        {
+            targetId: "confirmPassword", invoke: function (element, elem) {
+            console.log(element.id);
+            if (element.value != elem.value) {
+                var error = document.getElementById("confirmPasswordMessage");
+                error.setAttribute("style", "color: red;");
+                err++;
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        }
+    ];
+
+
+    function validateForm() {
+        err = 0;
+        var list = document.getElementsByClassName("textField");
+        for (var i = 0; i < list.length; i++) {
+            var element = list.item(i);
+            if (element.value.length == 0) {
+                var message = document.getElementById("errorMessage");
+                message.setAttribute("style", "display: outside;");
+                message.setAttribute("style", "color: red;");
+                err++;
+                return false;
+            } else {
+                isValid(element);
+            }
+            for (var j = 0; j < additionalFuncs.length; j++) {
+                if (additionalFuncs[j].targetId == element.id) {
+                    var elem = list.item(i - 1);
+                    additionalFuncs[j].invoke(element, elem);
+                }
+            }
+        }
+        showRegistrationMessage();
+    }
+
+    function isValid(element) {
+        var pattern = element.getAttribute("pattern");
+        var value = element.value;
+        console.log(value + " " + pattern);
+        var valid = value.search(pattern);
+        showMessage(valid, element);
+    }
+
+    function showMessage(valid, element) {
+        var errorElement = document.getElementById(element.name + "Message");
+
+        if (valid == -1) {
+            errorElement.setAttribute("style", "color: red;");
+            err++;
+            return false;
+        } else {
+            errorElement.setAttribute("style", "color: green;");
+            return true;
+        }
+    }
+
+
+    function showRegistrationMessage() {
+        if (err == 0) {
+            var warning = document.getElementById("errorMessage");
+            warning.setAttribute("style", "display: none");
+            var message = document.getElementById("successMessage");
+            message.setAttribute("style", "display: outside;");
+            message.setAttribute("style", "color: green;");
+            /*submitform();*/
+        }
+    }
+
+    /*function submitform()
+     {
+     document.form.submit();
+     /**!/}*/
+
+</script>
+</body>
+</html>

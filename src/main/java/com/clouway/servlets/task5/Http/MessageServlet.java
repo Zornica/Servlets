@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5;
+package com.clouway.servlets.task5.Http;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -18,6 +18,15 @@ public class MessageServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         ServletContext sc = getServletContext();
         Object message = sc.getAttribute("message");
-        out.write("<!DOCTYPE html>\n" + "<html>\n" + "<body>\n" + "<h2>" + message + "</h2>\n" + "</body></html>");
+        out.write("<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\">\n" +
+                "    <title>Your bank</title>\n" +
+                "</head>\n" +
+                "<body style=\"background-color:gainsboro\">\n" +
+                "<p><h1>"+message +"</h1></p>\n"+
+                "</body>\n" +
+                "</html>");
     }
 }

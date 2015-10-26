@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5;
+package com.clouway.servlets.task5.core;
 
 import javax.xml.transform.Result;
 import java.sql.*;

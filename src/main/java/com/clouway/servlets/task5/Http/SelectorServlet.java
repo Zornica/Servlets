@@ -1,4 +1,7 @@
-package com.clouway.servlets.task5;
+package com.clouway.servlets.task5.Http;
+
+import com.clouway.servlets.task5.core.BankAccount;
+import com.clouway.servlets.task5.core.Selector;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -17,7 +20,9 @@ public class SelectorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String user = req.getParameter("user");
+        ServletContext scr = getServletContext();
+        String user = scr.getAttribute("user").toString();
+        Double money = Double.parseDouble(req.getParameter("money"));
         PrintWriter out = resp.getWriter();
         String message = null;
         try {
@@ -26,30 +31,25 @@ public class SelectorServlet extends HttpServlet {
             PreparedStatement ps = con.prepareStatement("select currentSum from register where user = ? ");
             ps.setString(1, user);
             ResultSet rs = ps.executeQuery();
-            double sum = rs.getDouble("currentSum");
+            double sum = 0.0;
+            if (rs.next()) {
+                sum = rs.getDouble("currentSum");
+            }
 
-        BankAccount account = new BankAccount(sum);
+            BankAccount account = new BankAccount(sum);
 
-        if (req.getParameter("check") != null) {
-            message ="<p>You have "+ account.currentState()+" in your account!</p>";
-        } else if (req.getParameter("add") != null) {
-            account.add(Double.parseDouble(req.getParameter("sum")));
-           message ="<p>You have " + account.currentState() + " in your account!</p>";
-        } else if (req.getParameter("remove") != null) {
-            account.remove(Double.parseDouble(req.getParameter("sum")));
-            message="<p>You have "+ account.currentState()+" in your account!</p>";
-        }
+            Selector selector = new Selector(account, req);
+            message = selector.select(money);
+
+            PreparedStatement p = con.prepareStatement("update register set currentSum = ? where user =? ");
+            p.setDouble(1, account.currentState());
+            p.setString(2, user);
+            p.execute();
 
             ServletContext sc = getServletContext();
             sc.setAttribute("message", message);
             RequestDispatcher rd = req.getRequestDispatcher("messageServlet");
             rd.forward(req, resp);
-
-
-            PreparedStatement p = con.prepareStatement("update regiter set sum = ? where user =? ");
-            p.setDouble(1,account.currentState());
-            p.setString(2,user);
-            p.execute();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
