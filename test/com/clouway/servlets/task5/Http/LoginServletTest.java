@@ -33,8 +33,6 @@ public class LoginServletTest {
     private HttpServletRequest request = null;
 
 
-    @Mock
-    private BankMessage bank=null;
 
     @Before
     public void setUp() {
