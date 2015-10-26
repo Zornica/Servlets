@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5.Http;
+package com.clouway.servlets.task5.http;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,9 +38,6 @@ public class LoginServletTest {
     public void setUp() {
 
         loginServlet = new LoginServlet();
-
-
-
     }
 
 
@@ -74,7 +71,7 @@ public class LoginServletTest {
     public void loginWithNotExistingUser() throws Exception {
         JettyServer jettyServer = new JettyServer();
         final RequestUser requestUser = new RequestUser("ivan", "password");
-        final PrintWriter writer = new PrintWriter("User or password is not correct!");
+        final PrintWriter writer = new PrintWriter("loginMessage.txt");
 
         context.checking(new Expectations() {{
 

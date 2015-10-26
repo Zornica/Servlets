@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5.Http;
+package com.clouway.servlets.task5.http;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.*;
 
 /**
  * Created by clouway on 15-10-22.

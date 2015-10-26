@@ -1,6 +1,7 @@
-package com.clouway.servlets.task5.Http;
+package com.clouway.servlets.task5.http;
 
-import javax.servlet.RequestDispatcher;
+import com.clouway.servlets.task5.core.Registration;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,19 +18,10 @@ public class RegistrationServlet extends HttpServlet {
         resp.setContentType("text/html");
         String user = req.getParameter("user");
         String password = req.getParameter("password");
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/mydb", "root", "clouway.com");
-            PreparedStatement ps = con.prepareStatement("insert into register values(?,?,?)");
-            ps.setString(1, user);
-            ps.setString(2, password);
-            ps.setDouble(3, 0.0);
-            ps.execute();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
+        Registration registration=new Registration();
+        registration.insert(user,password);
+
         resp.getWriter().write("<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +

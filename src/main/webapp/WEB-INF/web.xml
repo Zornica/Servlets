@@ -129,7 +129,7 @@
 
     <servlet>
         <servlet-name>loginServlet</servlet-name>
-        <servlet-class>com.clouway.servlets.task5.Http.LoginServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task5.http.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -139,7 +139,7 @@
 
     <servlet>
         <servlet-name>messageServlet</servlet-name>
-        <servlet-class>com.clouway.servlets.task5.Http.MessageServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task5.http.MessageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -149,7 +149,7 @@
 
     <servlet>
         <servlet-name>registrationServlet</servlet-name>
-        <servlet-class>com.clouway.servlets.task5.Http.RegistrationServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task5.http.RegistrationServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -159,7 +159,7 @@
 
     <servlet>
         <servlet-name>selectorServlet</servlet-name>
-        <servlet-class>com.clouway.servlets.task5.Http.SelectorServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task5.http.SelectorServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -169,7 +169,7 @@
 
     <servlet>
         <servlet-name>welcomeServlet</servlet-name>
-        <servlet-class>com.clouway.servlets.task5.Http.WelcomeServlet</servlet-class>
+        <servlet-class>com.clouway.servlets.task5.http.WelcomeServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

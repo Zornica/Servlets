@@ -1,4 +1,4 @@
-package com.clouway.servlets.task5.Http;
+package com.clouway.servlets.task5.http;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
