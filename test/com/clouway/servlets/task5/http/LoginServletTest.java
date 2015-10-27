@@ -4,7 +4,7 @@ package com.clouway.servlets.task5.http;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.clouway.servlets.task5.core.JettyServer;
+import com.clouway.servlets.task5.http.core.RequestUser;
 import org.jmock.Expectations;
 import org.jmock.auto.Mock;
 import org.jmock.integration.junit4.JUnitRuleMockery;
