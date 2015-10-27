@@ -5,7 +5,7 @@ import java.sql.*;
 
 
 public class Validator {
-    public static boolean checkUser(String user, String password) {
+    public  boolean checkUser(String user, String password) {
         boolean st = false;
         String query ="select * from register where user = ? and password = ?";
         try {

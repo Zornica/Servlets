@@ -19,8 +19,7 @@ public class LoginServlet extends HttpServlet {
         resp.setContentType("text/html");
         String user = req.getParameter("user");
         String password = req.getParameter("password");
-        new Validator();
-        if (Validator.checkUser(user, password)) {
+        if (new Validator().checkUser(user, password)) {
             RequestDispatcher rc = req.getRequestDispatcher("welcomeServlet");
             rc.forward(req, resp);
         } else {
