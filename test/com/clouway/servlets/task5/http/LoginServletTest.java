@@ -43,7 +43,7 @@ public class LoginServletTest {
 
     @Test
     public void loginWithExistingUser() throws Exception {
-        JettyServer jettyServer = new JettyServer();
+
         final RequestUser requestUser = new RequestUser("koko","123789");
 
 
@@ -59,8 +59,6 @@ public class LoginServletTest {
             will(returnValue(requestUser.password));
 
             oneOf(request).getRequestDispatcher("welcomeServlet");
-
-
         }
         });
 
@@ -69,7 +67,7 @@ public class LoginServletTest {
 
     @Test
     public void loginWithNotExistingUser() throws Exception {
-        JettyServer jettyServer = new JettyServer();
+
         final RequestUser requestUser = new RequestUser("ivan", "password");
         final PrintWriter writer = new PrintWriter("loginMessage.txt");
 

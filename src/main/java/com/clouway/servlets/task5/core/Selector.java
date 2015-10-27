@@ -19,22 +19,27 @@ public class Selector {
     private HttpServletRequest req;
     ConnectionJDBC connect = new ConnectionJDBC();
     JDBCTemplate jdbcTemplate = new JDBCTemplate(Providers.of(connect.getConnection()));
+    private String user;
 
-    public Selector(HttpServletRequest req){
-
+    public Selector(HttpServletRequest req,String user){
         this.req = req;
+        this.user = user;
     }
 
-    public String select(double sum){
+
+    private void getcurrentSum(){
         String query="select currentSum from register where user = ? ";
- /*        double currentSum = jdbcTemplate.execute(query, new RowFetcher<Double>() {
+          account=new BankAccount(jdbcTemplate.execute(query, new RowFetcher<Double>() {
             @Override
             public Double fetch(ResultSet rs) throws SQLException {
                 return  rs.getDouble("currentSum");
 
             }
-        });*/
+        }));
+    }
 
+    public String select(double sum){
+        getcurrentSum();
         if (req.getParameter("check") != null) {
             message = "<p>You have " + account.currentState() + " in your account!</p>";
         } else if (req.getParameter("add") != null) {
@@ -44,6 +49,12 @@ public class Selector {
             account.remove(sum);
             message = "<p>You have " + account.currentState() + " in your account!</p>";
         }
+        updateSum();
         return message;
+    }
+
+    private void updateSum(){
+        String query="update register set currentSum = "+account.currentState()+" where user = '"+user+"'";
+        jdbcTemplate.makeRequest(query);
     }
 }

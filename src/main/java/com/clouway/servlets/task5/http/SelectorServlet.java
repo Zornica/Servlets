@@ -19,33 +19,18 @@ public class SelectorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-/*        ServletContext scr = getServletContext();
+        ServletContext scr = getServletContext();
         String user = scr.getAttribute("user").toString();
         Double money = Double.parseDouble(req.getParameter("money"));
         PrintWriter out = resp.getWriter();
         String message = null;
-        try {
 
-
-
-
-            Selector selector = new Selector( req);
+            Selector selector = new Selector(req,user);
             message = selector.select(money);
 
-            PreparedStatement p = con.prepareStatement("update register set currentSum = ? where user =? ");
-            p.setDouble(1, account.currentState());
-            p.setString(2, user);
-            p.execute();
-
-            ServletContext sc = getServletContext();
-            sc.setAttribute("message", message);
-            RequestDispatcher rd = req.getRequestDispatcher("messageServlet");
-            rd.forward(req, resp);
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
+        ServletContext sc = getServletContext();
+        sc.setAttribute("message", message);
+        RequestDispatcher rd = req.getRequestDispatcher("messageServlet");
+        rd.forward(req, resp);
     }
 }

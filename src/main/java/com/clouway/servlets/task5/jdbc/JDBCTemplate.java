@@ -39,17 +39,17 @@ public class JDBCTemplate {
         }
     }
 
-    public <T> List<T> execute(String query, RowFetcher<T> fetcher) {
+    public double execute(String query, RowFetcher<Double> fetcher) {
         PreparedStatement stmt = null;
         ResultSet rs = null;
         try {
             stmt = dbConn.get().prepareStatement(query);
-            List<T> addresses = new ArrayList<T>();
+           double sum=0.0;
             rs = stmt.executeQuery();
             while (rs.next()) {
-                addresses.add(fetcher.fetch(rs));
+                sum =fetcher.fetch(rs);
             }
-            return addresses;
+            return sum;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -62,6 +62,23 @@ public class JDBCTemplate {
                 sql.printStackTrace();
             }
         }
-        return null;
+        return 0.0;
+    }
+    public void makeRequest(String query) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = dbConn.get().prepareStatement(query);
+            stmt.execute();
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+            } catch (SQLException sql) {
+                sql.printStackTrace();
+            }
+        }
     }
 }
