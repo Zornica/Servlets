@@ -14,13 +14,13 @@ import java.io.IOException;
  */
 public class LoginServlet extends HttpServlet {
 
-   private  Validator validator = new Validator();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         String user = req.getParameter("user");
         String password = req.getParameter("password");
-        if (validator.checkUser(user, password)) {
+        new Validator();
+        if (Validator.checkUser(user, password)) {
             RequestDispatcher rc = req.getRequestDispatcher("welcomeServlet");
             rc.forward(req, resp);
         } else {
