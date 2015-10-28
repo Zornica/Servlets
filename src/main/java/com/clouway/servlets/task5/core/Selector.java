@@ -20,25 +20,27 @@ public class Selector {
     ConnectionJDBC connect = new ConnectionJDBC();
     JDBCTemplate jdbcTemplate = new JDBCTemplate(Providers.of(connect.getConnection()));
     private String user;
+    private double currentSum;
 
-    public Selector(HttpServletRequest req,String user){
+    public Selector(HttpServletRequest req, String user) {
         this.req = req;
         this.user = user;
     }
 
 
-    private void getcurrentSum(){
-        String query="select currentSum from register where user = ? ";
-          account=new BankAccount(jdbcTemplate.execute(query, new RowFetcher<Double>() {
+    private void getcurrentSum() {
+        String query = "select currentSum from register where user = '"+user+"'";
+        currentSum = jdbcTemplate.execute(query, new RowFetcher<Double>() {
             @Override
             public Double fetch(ResultSet rs) throws SQLException {
-                return  rs.getDouble("currentSum");
+                return rs.getDouble("currentSum");
 
             }
-        }));
+        });
+        account = new BankAccount(currentSum);
     }
 
-    public String select(double sum){
+    public String select(double sum) {
         getcurrentSum();
         if (req.getParameter("check") != null) {
             message = "<p>You have " + account.currentState() + " in your account!</p>";
@@ -49,12 +51,13 @@ public class Selector {
             account.remove(sum);
             message = "<p>You have " + account.currentState() + " in your account!</p>";
         }
+        currentSum = account.currentState();
         updateSum();
         return message;
     }
 
-    private void updateSum(){
-        String query="update register set currentSum = "+account.currentState()+" where user = '"+user+"'";
+    private void updateSum() {
+        String query = "update register set currentSum = " + currentSum + " where user = '" + user + "'";
         jdbcTemplate.makeRequest(query);
     }
 }
